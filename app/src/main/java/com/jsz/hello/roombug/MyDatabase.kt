@@ -24,14 +24,14 @@ abstract class MyDatabase : RoomDatabase() {
                 INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
             }
 
-        private fun buildDatabase(context: Context) =
-            Room.databaseBuilder(
+        private fun buildDatabase(context: Context): MyDatabase {
+            return Room.databaseBuilder(
                 context.applicationContext,
                 MyDatabase::class.java,
                 "Sample.db"
             )
                 .fallbackToDestructiveMigration()
                 .build()
-
+        }
     }
 }

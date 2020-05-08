@@ -13,8 +13,8 @@ data class User(
     tableName = "pets",
     foreignKeys = [ForeignKey(
         entity = User::class,
-        parentColumns = arrayOf("userId"),
-        childColumns = arrayOf("owner")
+        parentColumns = [("userId")],
+        childColumns = [("owner")]
     )],
     indices = [Index(value = ["owner"])]
 )

@@ -22,5 +22,3 @@ class Disposables {
 operator fun Disposables.plusAssign(disposable: Disposable) {
     add(disposable)
 }
-
-//fun Disposable.addTo(androidDisposable: Disposables) = androidDisposable.add(this)

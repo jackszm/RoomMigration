@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun update() {
         textView.text = ""
-        disposables += Completable.fromAction { storage.updateData(PREPOPULATE_DATA, PETS) }
+        disposables += Completable.fromAction { storage.updateData(USERS, PETS) }
             .subscribeOn(Schedulers.io())
             .observeOn(mainThread())
             .subscribe { textView.text = "Updated" }
@@ -31,16 +31,15 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         disposables.dispose()
         super.onDestroy()
-
     }
 }
 
-val PREPOPULATE_DATA = listOf(
-    User("ironman", "Tony", "Stark"),
-    User("batman", "Bruce", "Wane")
+val USERS = listOf(
+    User("user_0001", "Jon", "Snow"),
+    User("user_0002", "Daenerys", "Targaryen")
 )
 
 val PETS = listOf(
-    Pet("doggo1", "Alpha", "ironman"),
-    Pet("doggo2", "Bravo", "ironman")
+    Pet("pet_0001", "Drogon", "user_0001"),
+    Pet("pet_0002", "Ghost", "user_0002")
 )

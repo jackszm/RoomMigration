@@ -17,17 +17,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         button.setOnClickListener { update() }
     }
 
     private fun update() {
+        textView.text = ""
         disposables += Completable.fromAction { storage.updateData(PREPOPULATE_DATA, PETS) }
-            .andThen(storage.getAll())
-            .map { it }
             .subscribeOn(Schedulers.io())
             .observeOn(mainThread())
-            .subscribe { users, _ -> textView.text = "${users.size}" }
+            .subscribe { textView.text = "Updated" }
     }
 
     override fun onDestroy() {

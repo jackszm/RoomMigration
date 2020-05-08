@@ -16,7 +16,7 @@ abstract class Storage {
         insertPets(pets)
     }
 
-    @Query("DELETE FROM pets")
+    @Query("DELETE FROM Pet")
     abstract fun deleteAllPets()
 
     @Query("DELETE FROM user")

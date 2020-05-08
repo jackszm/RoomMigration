@@ -10,7 +10,7 @@ data class User(
 )
 
 @Entity(
-    tableName = "pets",
+    tableName = "Pet",
     foreignKeys = [ForeignKey(
         entity = User::class,
         parentColumns = [("userId")],

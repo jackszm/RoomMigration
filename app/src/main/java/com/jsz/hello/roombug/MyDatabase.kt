@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase
     entities = [
         User::class,
         Pet::class
-    ], version = 1
+    ], version = 2
 )
 abstract class MyDatabase : RoomDatabase() {
     abstract fun storage(): Storage

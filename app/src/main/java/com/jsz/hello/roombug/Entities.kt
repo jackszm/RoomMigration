@@ -15,18 +15,11 @@ data class User(
         entity = User::class,
         parentColumns = arrayOf("userId"),
         childColumns = arrayOf("owner")
-    )]
+    )],
+    indices = [Index(value = ["owner"])]
 )
 data class Pet(
     @PrimaryKey val petId: String,
     val name: String,
     val owner: String
 )
-
-//class UserAndAllPets {
-//    @Embedded
-//    var user: User? = null
-//
-//    @Relation(parentColumn = "userId", entityColumn = "owner")
-//    var pets: List<Pet> = ArrayList()
-//}

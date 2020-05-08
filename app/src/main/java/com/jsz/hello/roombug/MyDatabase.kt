@@ -28,7 +28,9 @@ abstract class MyDatabase : RoomDatabase() {
             Room.databaseBuilder(
                 context.applicationContext,
                 MyDatabase::class.java, "Sample.db"
-            ).build()
+            )
+                .fallbackToDestructiveMigration()
+                .build()
 
     }
 }

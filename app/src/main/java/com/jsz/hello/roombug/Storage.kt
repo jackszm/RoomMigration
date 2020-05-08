@@ -29,13 +29,7 @@ abstract class Storage {
     @Query("DELETE FROM user")
     abstract fun deleteAllUsers()
 
-    @Query("DELETE FROM user")
+    @Query("DELETE FROM pets")
     abstract fun deleteAllPets(): Completable
 
-    @Query("SELECT * FROM Pets where owner = :userId")
-    abstract fun getPetsForUser(userId: String): List<Pet>
-
-//    @Transaction
-//    @Query("SELECT * FROM user")
-//    abstract fun getUsers(): List<UserAndAllPets>
 }
